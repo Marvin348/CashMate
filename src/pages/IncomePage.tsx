@@ -24,7 +24,7 @@ const IncomePage = () => {
         <TransactionModal type={type} onClose={() => setIsModalOpen(false)} />
       )}
 
-      <div className="mt-8 p-4 w-full h-[300px] shadow-[0_0_20px_rgba(0,0,0,0.1)] rounded-md">
+      <div className="mt-8 p-4 w-full h-[300px] custom-shadow rounded-md">
         <div className="text-right mb-2">
           <Button variant="outline" onClick={() => setIsModalOpen(true)}>
             + Einkommen
@@ -37,7 +37,7 @@ const IncomePage = () => {
         )}
       </div>
 
-      <div className="mt-6 p-4 shadow-[0_0_20px_rgba(0,0,0,0.1)] rounded-md">
+      <div className="mt-6 p-4 custom-shadow rounded-md">
         <h2 className="font-bold text-lg mb-4">Alle Einnahmen</h2>
         <GridTransactions data={incomeTransactions} type="income" />
       </div>

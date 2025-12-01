@@ -14,8 +14,6 @@
   outline: none !important;
 }
 
-
-
 @theme {
   --color-custom: #4c51bf;
 }
@@ -29,6 +27,9 @@
   }
   .error-message {
     @apply mt-1 text-[0.6rem] text-red-500;
+  }
+  .custom-shadow {
+    @apply shadow-[0_0_20px_rgba(0,0,0,0.1)];
   }
 }
 
