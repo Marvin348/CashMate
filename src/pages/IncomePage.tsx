@@ -3,7 +3,7 @@ import TransactionModal from "../components/transaction/TransactionModal";
 import { Button } from "@/components/ui/button";
 import IncomeChart from "@/components/income/IncomeChart";
 import useTransactionsStore from "@/storage/useTransactionsStore";
-import GridTransactions from "@/components/GridTransactions";
+import GridTransactions from "@/components/transaction/GridTransactions";
 
 type TransactionType = "expense" | "income";
 
@@ -20,16 +20,25 @@ const IncomePage = () => {
 
   return (
     <div>
-      <Button variant="outline" onClick={() => setIsModalOpen(true)}>
-        + Einkommen
-      </Button>
       {isModalOpen && (
         <TransactionModal type={type} onClose={() => setIsModalOpen(false)} />
       )}
-      <div className="mt-8 w-full h-[300px]">
-        <IncomeChart data={incomeTransactions} />
+
+      <div className="mt-8 p-4 w-full h-[300px] shadow-[0_0_20px_rgba(0,0,0,0.1)] rounded-md">
+        <div className="text-right mb-2">
+          <Button variant="outline" onClick={() => setIsModalOpen(true)}>
+            + Einkommen
+          </Button>
+        </div>
+        {incomeTransactions.length >= 1 ? (
+          <IncomeChart data={incomeTransactions} />
+        ) : (
+          <div>Noch keine Daten vorhanden</div>
+        )}
       </div>
-      <div>
+
+      <div className="mt-6 p-4 shadow-[0_0_20px_rgba(0,0,0,0.1)] rounded-md">
+        <h2 className="font-bold text-lg mb-4">Alle Einnahmen</h2>
         <GridTransactions data={incomeTransactions} />
       </div>
     </div>
