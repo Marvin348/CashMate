@@ -9,9 +9,10 @@ import { zodResolver } from "@hookform/resolvers/zod";
 
 type TransactionFormProps = {
   type: "income" | "expense";
+  onClose: () => void;
 };
 
-const TransactionForm = ({ type }: TransactionFormProps) => {
+const TransactionForm = ({ type, onClose }: TransactionFormProps) => {
   const addTransaction = useTransactionsStore((state) => state.addTransaction);
 
   const formShema = z.object({
@@ -38,6 +39,7 @@ const TransactionForm = ({ type }: TransactionFormProps) => {
       ...data,
       type,
     });
+    onClose();
   };
 
   return (

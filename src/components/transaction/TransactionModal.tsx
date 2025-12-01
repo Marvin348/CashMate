@@ -25,7 +25,7 @@ const TransactionModal = ({ type, onClose }: TransactionModalProps) => {
           </button>
         </div>
         <div className="border-t border-gray-200 pt-4">
-          <TransactionForm type={type} />
+          <TransactionForm type={type} onClose={onClose} />
         </div>
       </div>
     </div>
