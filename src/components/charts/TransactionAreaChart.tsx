@@ -1,22 +1,16 @@
-import {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  Tooltip,
-} from "recharts";
-import type { Transaction } from "@/types/transaction";
-import { formatDateDE } from "@/utils/formData";
+import { AreaChart, Area, XAxis, YAxis, Tooltip } from "recharts";
 import CustomTooltip from "../CustomTooltip";
+import { formatDateDE } from "@/utils/formData";
+import type { Transaction } from "@/types/transaction";
 
-type IncomeChartProps = {
+type ChartProps = {
   data: Transaction[];
+  type: "income" | "expense";
 };
 
-const IncomeChart = ({ data }: IncomeChartProps) => {
-
+const TransactionAreaChart = ({ data, type }: ChartProps) => {
   return (
-    <LineChart
+    <AreaChart
       style={{
         width: "100%",
         height: "100%",
@@ -37,19 +31,20 @@ const IncomeChart = ({ data }: IncomeChartProps) => {
         tick={{ fontSize: 12, fontWeight: 500 }}
       />
       <YAxis
+        width="auto"
         domain={["auto", "auto"]}
         tickLine={false}
         tick={{ fontSize: 12, fontWeight: 500 }}
       />
-      <Tooltip content={<CustomTooltip />} cursor={false} />
-      <Line
+      <Tooltip content={<CustomTooltip type={type} />} />
+      <Area
         type="monotone"
         dataKey="amount"
-        stroke="#4c51bf"
-        activeDot={{ r: 8 }}
+        stroke={type === "income" ? "#22c55e" : "#ef4444"}
+        fill={type === "income" ? "#22c55e" : "#ef4444"}
         strokeWidth={3}
       />
-    </LineChart>
+    </AreaChart>
   );
 };
-export default IncomeChart;
+export default TransactionAreaChart;

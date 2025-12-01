@@ -11,9 +11,10 @@ type TransactionItemProps = {
     bg: string;
     color: string;
   };
+  type: "income" | "expense";
 };
 
-const TransactionItem = ({ trans, icon }: TransactionItemProps) => {
+const TransactionItem = ({ trans, icon, type }: TransactionItemProps) => {
   const { name, date, amount } = trans;
   const Icon = icon?.icon;
 
@@ -30,9 +31,19 @@ const TransactionItem = ({ trans, icon }: TransactionItemProps) => {
         <p className="font-semibold">{name}</p>
         <p className="text-gray-500 text-xs">{formatDateDE(date)}</p>
       </div>
-      <div className="flex items-center gap-1 ml-auto text-xs text-green-600/90 bg-green-500/20 p-1 rounded-md font-medium">
+      <div
+        className={`flex items-center gap-1 ml-auto text-xs p-1 rounded-md font-medium ${
+          type === "income"
+            ? "text-green-600 bg-green-600/20"
+            : "text-red-600 bg-red-600/20"
+        }`}
+      >
         {`${amount}€`}
-        <IoTrendingUpOutline />
+        {type === "income" ? (
+          <IoTrendingUpOutline />
+        ) : (
+          <IoTrendingDownOutline />
+        )}
       </div>
     </>
   );

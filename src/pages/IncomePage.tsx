@@ -1,9 +1,9 @@
 import { useState } from "react";
 import TransactionModal from "../components/transaction/TransactionModal";
 import { Button } from "@/components/ui/button";
-import IncomeChart from "@/components/income/IncomeChart";
 import useTransactionsStore from "@/storage/useTransactionsStore";
 import GridTransactions from "@/components/transaction/GridTransactions";
+import TransactionAreaChart from "@/components/charts/TransactionAreaChart";
 
 type TransactionType = "expense" | "income";
 
@@ -31,7 +31,7 @@ const IncomePage = () => {
           </Button>
         </div>
         {incomeTransactions.length >= 1 ? (
-          <IncomeChart data={incomeTransactions} />
+          <TransactionAreaChart data={incomeTransactions} type="income" />
         ) : (
           <div>Noch keine Daten vorhanden</div>
         )}
@@ -39,7 +39,7 @@ const IncomePage = () => {
 
       <div className="mt-6 p-4 shadow-[0_0_20px_rgba(0,0,0,0.1)] rounded-md">
         <h2 className="font-bold text-lg mb-4">Alle Einnahmen</h2>
-        <GridTransactions data={incomeTransactions} />
+        <GridTransactions data={incomeTransactions} type="income" />
       </div>
     </div>
   );
