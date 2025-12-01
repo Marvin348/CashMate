@@ -1,8 +1,5 @@
-import { RxDashboard } from "react-icons/rx";
-import { LuWallet } from "react-icons/lu";
-import { TbFileInvoice } from "react-icons/tb";
-import { LuFilter } from "react-icons/lu";
-import { Link } from "react-router";
+import { SIDEBAR_LINKS } from "@/constants/sidebar-links";
+import { NavLink } from "react-router";
 
 type SidebarProps = {
   isOpen: boolean;
@@ -26,26 +23,17 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
         } md:static md:h-screen md:border-r border-gray-200 shadow-xs md:translate-x-0 md:rounded-none`}
       >
         <nav className="flex flex-col gap-4 rounded-md">
-          <div>
-            <Link to="/" className="sidebar-btn bg-custom text-white">
-              <RxDashboard /> Dashboard
-            </Link>
-          </div>
-          <div>
-            <Link to="/income" className="sidebar-btn">
-              <LuWallet /> Einkommen
-            </Link>
-          </div>
-          <div>
-            <Link to="/expense" className="sidebar-btn">
-              <TbFileInvoice /> Ausgaben
-            </Link>
-          </div>
-          <div>
-            <Link to="/filter" className="sidebar-btn">
-              <LuFilter /> Filter
-            </Link>
-          </div>
+          {SIDEBAR_LINKS.map((link) => (
+            <NavLink
+              key={link.to}
+              to={link.to}
+              className={({ isActive }) =>
+                `sidebar-btn ${isActive ? `${link.activeColor}` : ""}`
+              }
+            >
+              {link.label}
+            </NavLink>
+          ))}
         </nav>
       </aside>
     </>
