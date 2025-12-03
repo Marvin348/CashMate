@@ -4,8 +4,8 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router";
 import DashboardPage from "./pages/DashboardPage.tsx";
 import AppLayout from "./components/AppLayout.tsx";
-import ExpensePage from "./pages/ExpensePage.tsx";
-import IncomePage from "./pages/IncomePage.tsx";
+import ExpensePage from "./pages/transactions/ExpensePage.tsx";
+import IncomePage from "./pages/transactions/IncomePage.tsx";
 import FilterPage from "./pages/FilterPage.tsx";
 
 const router = createBrowserRouter([

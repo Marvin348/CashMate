@@ -28,21 +28,26 @@ const TransactionAreaChart = ({ data, type }: ChartProps) => {
         dataKey="date"
         tickFormatter={formatDateDE}
         tickLine={false}
+        axisLine={false}
         tick={{ fontSize: 12, fontWeight: 500 }}
+        pointerEvents="none"
       />
       <YAxis
         width="auto"
         domain={["auto", "auto"]}
         tickLine={false}
+        axisLine={false}
         tick={{ fontSize: 12, fontWeight: 500 }}
+        pointerEvents="none"
       />
-      <Tooltip content={<CustomTooltip type={type} />} />
+      <Tooltip cursor={false} content={<CustomTooltip type={type} />} />
       <Area
         type="monotone"
         dataKey="amount"
         stroke={type === "income" ? "#22c55e" : "#ef4444"}
         fill={type === "income" ? "#22c55e" : "#ef4444"}
         strokeWidth={3}
+        pointerEvents="none"
       />
     </AreaChart>
   );
