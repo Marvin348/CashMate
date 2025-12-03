@@ -11,11 +11,12 @@ import { CATEGORY_OPTIONS } from "@/constants/categorys";
 
 type CategorySelectProps = {
   onSelect: (value: string) => void;
+  value: string | undefined;
 };
 
-const CategorySelect = ({ onSelect }: CategorySelectProps) => {
+const CategorySelect = ({ onSelect, value }: CategorySelectProps) => {
   return (
-    <Select onValueChange={onSelect}>
+    <Select value={value} onValueChange={onSelect}>
       <SelectTrigger className="w-full">
         <SelectValue placeholder="Wähle eine Kategorie" />
       </SelectTrigger>

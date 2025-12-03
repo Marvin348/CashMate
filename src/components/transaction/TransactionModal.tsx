@@ -1,12 +1,18 @@
 import { IoClose } from "react-icons/io5";
 import TransactionForm from "./TransactionForm";
+import type { Transaction } from "@/types/transaction";
 
 type TransactionModalProps = {
   type: "income" | "expense";
   onClose: () => void;
+  editingTransaction: Transaction | null;
 };
 
-const TransactionModal = ({ type, onClose }: TransactionModalProps) => {
+const TransactionModal = ({
+  type,
+  onClose,
+  editingTransaction,
+}: TransactionModalProps) => {
   const labels = {
     income: "Einkommen hinzufügen",
     expense: "Ausgaben hinzufügen",
@@ -25,7 +31,11 @@ const TransactionModal = ({ type, onClose }: TransactionModalProps) => {
           </button>
         </div>
         <div className="border-t border-gray-200 pt-4">
-          <TransactionForm type={type} onClose={onClose} />
+          <TransactionForm
+            type={type}
+            onClose={onClose}
+            editingTransaction={editingTransaction}
+          />
         </div>
       </div>
     </div>

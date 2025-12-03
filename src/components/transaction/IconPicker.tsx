@@ -1,12 +1,19 @@
 import { ICON_OPTIONS } from "@/constants/icon-options";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 type IconPickerProp = {
   onSelect: (value: string) => void;
+  value?: string;
 };
 
-const IconPicker = ({ onSelect }: IconPickerProp) => {
+const IconPicker = ({ onSelect, value }: IconPickerProp) => {
   const [selectedIcon, setSelectedIcon] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (value) {
+      setSelectedIcon(value);
+    }
+  }, [value]);
 
   return (
     <div>

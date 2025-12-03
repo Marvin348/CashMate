@@ -2,6 +2,9 @@ import type { Transaction } from "@/types/transaction";
 import { formatDateDE } from "@/utils/formData";
 import { IoTrendingUpOutline, IoTrendingDownOutline } from "react-icons/io5";
 import type { IconType } from "react-icons/lib";
+import { BsThreeDotsVertical } from "react-icons/bs";
+import { useState } from "react";
+import TransactionActionsMenu from "./TransactionActionsMenu";
 
 type TransactionItemProps = {
   trans: Transaction;
@@ -12,11 +15,21 @@ type TransactionItemProps = {
     color: string;
   };
   type: "income" | "expense";
+  onDelete: () => void;
+  onEdit: () => void;
 };
 
-const TransactionItem = ({ trans, icon, type }: TransactionItemProps) => {
+const TransactionItem = ({
+  trans,
+  icon,
+  type,
+  onDelete,
+  onEdit,
+}: TransactionItemProps) => {
   const { name, date, amount } = trans;
   const Icon = icon?.icon;
+
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
@@ -27,7 +40,7 @@ const TransactionItem = ({ trans, icon, type }: TransactionItemProps) => {
           <Icon />
         </div>
       )}
-      <div className="">
+      <div>
         <p className="font-semibold">{name}</p>
         <p className="text-gray-500 text-xs">{formatDateDE(date)}</p>
       </div>
@@ -45,6 +58,24 @@ const TransactionItem = ({ trans, icon, type }: TransactionItemProps) => {
           <IoTrendingDownOutline />
         )}
       </div>
+      <button
+        className="text-gray-700 hover:text-black"
+        onClick={() => setIsOpen((prev) => !prev)}
+      >
+        <BsThreeDotsVertical />
+      </button>
+      {isOpen && (
+        <TransactionActionsMenu
+          onDelete={() => {
+            setIsOpen(false);
+            onDelete();
+          }}
+          onEdit={() => {
+            onEdit();
+            setIsOpen(false);
+          }}
+        />
+      )}
     </>
   );
 };

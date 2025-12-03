@@ -6,14 +6,24 @@ import useTransactionsStore from "@/storage/useTransactionsStore";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import type { Transaction } from "@/types/transaction";
+import { useEffect } from "react";
 
 type TransactionFormProps = {
   type: "income" | "expense";
   onClose: () => void;
+  editingTransaction: Transaction | null;
 };
 
-const TransactionForm = ({ type, onClose }: TransactionFormProps) => {
+const TransactionForm = ({
+  type,
+  onClose,
+  editingTransaction,
+}: TransactionFormProps) => {
   const addTransaction = useTransactionsStore((state) => state.addTransaction);
+  const updateTransaction = useTransactionsStore(
+    (state) => state.updateTransaction
+  );
 
   const formShema = z.object({
     icon: z.string("Icon auswählen"),
@@ -34,11 +44,28 @@ const TransactionForm = ({ type, onClose }: TransactionFormProps) => {
     resolver: zodResolver(formShema),
   });
 
+  useEffect(() => {
+    if (!editingTransaction) return;
+
+    setValue("icon", editingTransaction.icon);
+    setValue("name", editingTransaction.name);
+    setValue("amount", editingTransaction.amount);
+    setValue("category", editingTransaction.category);
+    setValue("date", editingTransaction.date);
+  }, [editingTransaction]);
+
   const onSubmit = (data: TransactionFormData) => {
-    addTransaction({
-      ...data,
-      type,
-    });
+    if (editingTransaction) {
+      updateTransaction(editingTransaction.id, {
+        ...data,
+        type,
+      });
+    } else {
+      addTransaction({
+        ...data,
+        type,
+      });
+    }
     onClose();
   };
 
@@ -50,6 +77,7 @@ const TransactionForm = ({ type, onClose }: TransactionFormProps) => {
             onSelect={(icon) =>
               setValue("icon", icon, { shouldValidate: true })
             }
+            value={editingTransaction?.icon}
           />
           {errors.icon && (
             <div className="error-message">{errors.icon.message}</div>
@@ -78,6 +106,7 @@ const TransactionForm = ({ type, onClose }: TransactionFormProps) => {
             onSelect={(category) =>
               setValue("category", category, { shouldValidate: true })
             }
+            value={editingTransaction?.category}
           />
           {errors.category && (
             <div className="error-message">{errors.category.message}</div>
@@ -93,7 +122,7 @@ const TransactionForm = ({ type, onClose }: TransactionFormProps) => {
       </div>
       <div className="mt-6 text-right">
         <Button variant="outline" type="submit" size="sm">
-          Hinzufügen
+          {editingTransaction ? "Aktualsieren" : "Hinzufügen"}
         </Button>
       </div>
     </form>
