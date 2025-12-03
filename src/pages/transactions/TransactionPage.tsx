@@ -1,5 +1,5 @@
 import { useState } from "react";
-import TransactionModal from "../../components/transaction/TransactionModal";
+import TransactionModal from "@/components/transaction/TransactionModal";
 import { Button } from "@/components/ui/button";
 import useTransactionsStore from "@/storage/useTransactionsStore";
 import GridTransactions from "@/components/transaction/GridTransactions";
@@ -49,7 +49,9 @@ const TransactionPage = ({ type }: TransactionPageProps) => {
       </div>
 
       <div className="mt-6 p-4 custom-shadow rounded-md">
-        <h2 className="font-bold text-lg mb-4">Alle Einnahmen</h2>
+        <h2 className="font-bold text-lg mb-4">
+          {type === "income" ? "Alle Einnahmen" : "Alle Ausgaben"}
+        </h2>
         <GridTransactions
           data={filtered}
           type={type}

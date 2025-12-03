@@ -1,4 +1,7 @@
+import useTransactionsStore from "@/storage/useTransactionsStore";
 const FilterPage = () => {
-  return <div className="font-extrabold text-2xl">FilterPage</div>;
+  return <div>
+    
+  </div>;
 };
 export default FilterPage;
