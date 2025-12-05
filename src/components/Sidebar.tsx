@@ -23,15 +23,16 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
         } md:static md:h-screen md:border-r border-gray-200 shadow-xs md:translate-x-0 md:rounded-none`}
       >
         <nav className="flex flex-col gap-4 rounded-md">
-          {SIDEBAR_LINKS.map((link) => (
+          {SIDEBAR_LINKS.map(({ to, activeColor, label, icon: Icon }) => (
             <NavLink
-              key={link.to}
-              to={link.to}
+              key={to}
+              to={to}
               className={({ isActive }) =>
-                `sidebar-btn ${isActive ? `${link.activeColor}` : ""}`
+                `sidebar-btn ${isActive ? `${activeColor}` : ""}`
               }
             >
-              {link.label}
+              <Icon />
+              {label}
             </NavLink>
           ))}
         </nav>

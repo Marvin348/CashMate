@@ -1,4 +1,4 @@
-import SummaryCardGroup from "../components/dashboard/SummaryCardGroup";
+import SummaryCardGroup from "@/components/dashboard/SummaryCardGroup";
 const DashboardPage = () => {
 
   return (

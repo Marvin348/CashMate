@@ -23,7 +23,7 @@ const TransactionPage = ({ type }: TransactionPageProps) => {
   console.log(editingTransaction);
 
   return (
-    <div>
+    <>
       {isModalOpen && (
         <TransactionModal
           type={type}
@@ -71,7 +71,7 @@ const TransactionPage = ({ type }: TransactionPageProps) => {
           setEditingTransaction={setEditingTransaction}
         />
       </div>
-    </div>
+    </>
   );
 };
 export default TransactionPage;

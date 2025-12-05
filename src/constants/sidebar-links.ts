@@ -1,6 +1,5 @@
 import { RxDashboard } from "react-icons/rx";
-import { LuWallet, LuFilter } from "react-icons/lu";
-import { TbFileInvoice } from "react-icons/tb";
+import { LuWallet, LuFilter, LuHandCoins } from "react-icons/lu";
 
 export const SIDEBAR_LINKS = [
   {
@@ -18,7 +17,7 @@ export const SIDEBAR_LINKS = [
   {
     to: "/expense",
     label: "Ausgaben",
-    icon: TbFileInvoice,
+    icon: LuHandCoins,
     activeColor: "bg-custom text-white",
   },
   {

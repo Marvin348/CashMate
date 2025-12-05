@@ -1,18 +1,25 @@
-import { LuWallet } from "react-icons/lu";
-
 type SummaryCardProps = {
-  label: string;
+  card: {
+    label: string;
+    color: string;
+    icon: React.ElementType;
+  };
 };
 
-const SummaryCard = ({ label }: SummaryCardProps) => {
+const SummaryCard = ({ card }: SummaryCardProps) => {
+  const { label, color, icon: Icon } = card;
+
   return (
     <div className="flex items-center gap-4 p-4">
-      <div className="bg-amber-600 rounded-full size-12 flex items-center justify-center">
-        <LuWallet className="text-white text-lg" />
+      <div
+        style={{ backgroundColor: color }}
+        className="rounded-full size-12 flex items-center justify-center text-white"
+      >
+        <Icon className="text-xl" />
       </div>
       <div>
-        <p className="text-gray-500">{label}</p>
-        <p className="text-lg font-medium">1000€</p>
+        <p className="text-gray-600">{label}</p>
+        <p className="font-semibold">1000€</p>
       </div>
     </div>
   );
