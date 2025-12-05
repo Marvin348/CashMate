@@ -14,7 +14,6 @@ type TransactionItemProps = {
     bg: string;
     color: string;
   };
-  type: "income" | "expense";
   onDelete: () => void;
   onEdit: () => void;
 };
@@ -22,7 +21,6 @@ type TransactionItemProps = {
 const TransactionItem = ({
   trans,
   icon,
-  type,
   onDelete,
   onEdit,
 }: TransactionItemProps) => {
@@ -30,6 +28,8 @@ const TransactionItem = ({
   const Icon = icon?.icon;
 
   const [isOpen, setIsOpen] = useState(false);
+
+  const type = trans.type;
 
   return (
     <>

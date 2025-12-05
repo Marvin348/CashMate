@@ -5,18 +5,20 @@ import useTransactionsStore from "@/storage/useTransactionsStore";
 
 type GridTransactionsProps = {
   data: Transaction[];
-  type: "income" | "expense";
-  setIsModalOpen: () => void;
-  setEditingTransaction: (value: Transaction | null) => void;
+  setIsModalOpen?: () => void;
+  setEditingTransaction?: (value: Transaction | null) => void;
 };
 
 const GridTransactions = ({
   data,
-  type,
   setIsModalOpen,
   setEditingTransaction,
 }: GridTransactionsProps) => {
   const onDelete = useTransactionsStore((state) => state.deleteTransaction);
+
+  if (data.length === 0) {
+    return <div className="text-gray-500 text-sm">Keine Daten gefunden</div>;
+  }
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10">
@@ -31,11 +33,10 @@ const GridTransactions = ({
             <TransactionItem
               icon={icon}
               trans={trans}
-              type={type}
               onDelete={() => onDelete(trans.id)}
               onEdit={() => {
-                setEditingTransaction(trans);
-                setIsModalOpen();
+                setEditingTransaction?.(trans);
+                setIsModalOpen?.();
               }}
             />
           </div>

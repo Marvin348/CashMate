@@ -35,14 +35,27 @@ const TransactionPage = ({ type }: TransactionPageProps) => {
         />
       )}
 
-      <div className="mt-8 p-4 w-full h-[300px] custom-shadow rounded-md">
-        <div className="text-right mb-2">
+      <div className="mt-4 p-4 w-full custom-shadow rounded-md">
+        <div className="flex items-center justify-between mb-6 sm:mb-10">
+          <div className="">
+            <h2 className="font-bold text-xl">
+              {type === "income" ? "Einnahmen im Blick" : "Ausgaben im Blick"}
+            </h2>
+            <p className="text-sm text-gray-600">
+              {type === "income"
+                ? "Behalte deine Einnahmen im Auge und sieh, wohin dein Geld fließt."
+                : "Verfolge deine Ausgaben und entdecke Sparpotenziale im Alltag."}
+            </p>
+          </div>
           <Button variant="outline" onClick={() => setIsModalOpen(true)}>
-            {type === "income" ? "Einkommen" : "Ausgaben"}
+            {type === "income" ? "+ Einkommen" : "+ Ausgaben"}
           </Button>
         </div>
+
         {filtered.length >= 1 ? (
-          <TransactionAreaChart data={filtered} type={type} />
+          <div className="w-full h-[300px]">
+            <TransactionAreaChart data={filtered} type={type} />
+          </div>
         ) : (
           <div>Noch keine Daten vorhanden</div>
         )}
@@ -54,7 +67,6 @@ const TransactionPage = ({ type }: TransactionPageProps) => {
         </h2>
         <GridTransactions
           data={filtered}
-          type={type}
           setIsModalOpen={() => setIsModalOpen(true)}
           setEditingTransaction={setEditingTransaction}
         />

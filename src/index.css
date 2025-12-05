@@ -21,7 +21,7 @@
 
 @layer utilities {
   .overlay {
-    @apply fixed inset-0 bg-black/30;
+    @apply fixed inset-0 bg-black/30 z-50;
   }
   .sidebar-btn {
     @apply flex items-center gap-2 p-2 md:px-6 rounded-md font-medium;

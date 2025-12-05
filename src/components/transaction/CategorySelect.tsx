@@ -10,8 +10,8 @@ import {
 import { CATEGORY_OPTIONS } from "@/constants/categorys";
 
 type CategorySelectProps = {
-  onSelect: (value: string) => void;
-  value: string | undefined;
+  onSelect?: (value: string) => void;
+  value?: string | undefined;
 };
 
 const CategorySelect = ({ onSelect, value }: CategorySelectProps) => {
