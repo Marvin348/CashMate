@@ -35,25 +35,31 @@ const DashboardPage = () => {
 
   console.log(recentTransactions);
 
+  // grid grid-cols-1 sm:grid-cols-2 gap-x-10
+
   return (
     <>
       <div className="mt-4">
         <SummaryCardGroup cards={enrichedCards} />
       </div>
 
-      <div className="w-full mt-6 p-4 rounded-md custom-shadow">
-        <h2 className="font-medium text-lg">Chart Übersicht</h2>
-        <TransactionPieChart
-          income={totalIncome}
-          expense={totalExpense}
-          balance={totalBalance}
-        />
-      </div>
+      <div className="grid grid-cols-1 lg:grid-cols-2 justify-between gap-6 mt-6">
+        <div className="w-full p-4 rounded-md custom-shadow">
+          <h2 className="font-medium text-lg">Chart Übersicht</h2>
+          <div className="w-full h-full">
+            <TransactionPieChart
+              income={totalIncome}
+              expense={totalExpense}
+              balance={totalBalance}
+            />
+          </div>
+        </div>
 
-      <div>
-        <div className="mt-6 p-4 rounded-md custom-shadow">
-          <h2 className="font-medium text-lg">Letzte Transaktionen</h2>
-          <GridTransactions data={recentTransactions} />
+        <div className="w-full p-4 rounded-md custom-shadow">
+          <h2 className="font-medium text-lg mb-2">Letzte Transaktionen</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 lg:grid-cols-1">
+            <GridTransactions data={recentTransactions} />
+          </div>
         </div>
       </div>
     </>

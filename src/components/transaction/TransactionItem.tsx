@@ -35,13 +35,13 @@ const TransactionItem = ({
     <>
       {Icon && (
         <div
-          className={`${icon.bg} ${icon.color} rounded-full size-8 flex items-center justify-center`}
+          className={`${icon.bg} ${icon.color} size-8 rounded-full flex items-center justify-center`}
         >
           <Icon />
         </div>
       )}
-      <div>
-        <p className="font-semibold">{name}</p>
+      <div className="flex-1 min-w-0"> 
+        <p className="font-semibold wrap-break-word truncate">{name}</p>
         <p className="text-gray-500 text-xs">{formatDateDE(date)}</p>
       </div>
       <div

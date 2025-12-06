@@ -65,11 +65,13 @@ const TransactionPage = ({ type }: TransactionPageProps) => {
         <h2 className="font-bold text-lg mb-4">
           {type === "income" ? "Alle Einnahmen" : "Alle Ausgaben"}
         </h2>
-        <GridTransactions
-          data={filtered}
-          setIsModalOpen={() => setIsModalOpen(true)}
-          setEditingTransaction={setEditingTransaction}
-        />
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 lg:gap-x-12 gap-x-8">
+          <GridTransactions
+            data={filtered}
+            setIsModalOpen={() => setIsModalOpen(true)}
+            setEditingTransaction={setEditingTransaction}
+          />
+        </div>
       </div>
     </>
   );

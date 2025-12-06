@@ -21,7 +21,7 @@ const GridTransactions = ({
   }
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10">
+    <>
       {data.map((trans) => {
         const icon = ICON_OPTIONS.find((i) => i.value === trans.icon);
 
@@ -42,7 +42,7 @@ const GridTransactions = ({
           </div>
         );
       })}
-    </div>
+    </>
   );
 };
 export default GridTransactions;
