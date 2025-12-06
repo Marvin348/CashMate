@@ -36,6 +36,7 @@ const DashboardPage = () => {
       </div>
 
       <div className="w-full mt-6 p-4 rounded-md custom-shadow">
+        <h2 className="font-medium text-xl">Chart Übersicht</h2>
         <TransactionPieChart
           income={totalIncome}
           expense={totalExpense}
