@@ -29,6 +29,12 @@ const DashboardPage = () => {
     },
   ];
 
+  const recentTransactions = [...transactions]
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    .slice(0, 6);
+
+  console.log(recentTransactions);
+
   return (
     <>
       <div className="mt-4">
@@ -36,7 +42,7 @@ const DashboardPage = () => {
       </div>
 
       <div className="w-full mt-6 p-4 rounded-md custom-shadow">
-        <h2 className="font-medium text-xl">Chart Übersicht</h2>
+        <h2 className="font-medium text-lg">Chart Übersicht</h2>
         <TransactionPieChart
           income={totalIncome}
           expense={totalExpense}
@@ -46,7 +52,8 @@ const DashboardPage = () => {
 
       <div>
         <div className="mt-6 p-4 rounded-md custom-shadow">
-          <GridTransactions data={transactions} />
+          <h2 className="font-medium text-lg">Letzte Transaktionen</h2>
+          <GridTransactions data={recentTransactions} />
         </div>
       </div>
     </>
