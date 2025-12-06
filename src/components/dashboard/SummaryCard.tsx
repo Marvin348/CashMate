@@ -1,13 +1,11 @@
+import type { CardType } from "@/types/dashboard";
+
 type SummaryCardProps = {
-  card: {
-    label: string;
-    color: string;
-    icon: React.ElementType;
-  };
+  card: CardType;
 };
 
 const SummaryCard = ({ card }: SummaryCardProps) => {
-  const { label, color, icon: Icon } = card;
+  const { label, color, icon: Icon, value } = card;
 
   return (
     <div className="flex items-center gap-4 p-4">
@@ -19,7 +17,7 @@ const SummaryCard = ({ card }: SummaryCardProps) => {
       </div>
       <div>
         <p className="text-gray-600">{label}</p>
-        <p className="font-semibold">1000€</p>
+        <p className="font-semibold">{value}€</p>
       </div>
     </div>
   );

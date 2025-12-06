@@ -8,12 +8,12 @@ export const DASHBOARD_CARDS = [
   },
   {
     label: "Einkommen",
-    color: "#22c55e",
+    color: "#f97316",
     icon: LuWallet,
   },
   {
     label: "Ausgaben",
-    color: "#ef4444",
+    color: "#e53935",
     icon: LuHandCoins,
   },
 ];

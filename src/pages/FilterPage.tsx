@@ -49,7 +49,7 @@ const FilterPage = () => {
         </div>
       </div>
       <div className="mt-6 custom-shadow p-4 rounded-md">
-        <h2 className="font-bold text-lg mb-4">Transactionen</h2>
+        <h2 className="font-bold text-lg mb-4">Transaktionen</h2>
         <GridTransactions data={filteredData} />
       </div>
     </div>

@@ -44,8 +44,8 @@ const TransactionAreaChart = ({ data, type }: ChartProps) => {
       <Area
         type="monotone"
         dataKey="amount"
-        stroke={type === "income" ? "#22c55e" : "#ef4444"}
-        fill={type === "income" ? "#22c55e" : "#ef4444"}
+        stroke={type === "income" ? "#22c55e" : "#e53935"}
+        fill={type === "income" ? "#22c55e" : "#e53935"}
         strokeWidth={3}
         pointerEvents="none"
       />
