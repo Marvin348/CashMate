@@ -1,4 +1,5 @@
-import { PieChart, Pie, ResponsiveContainer, Label } from "recharts";
+import { PieChart, Pie, ResponsiveContainer, Label, Legend } from "recharts";
+import CustomLegend from "../CustomLegend";
 
 type TransactionPieChartProps = {
   income: number;
@@ -31,6 +32,7 @@ const TransactionPieChart = ({
           cy="50%"
           pointerEvents="none"
         >
+          <Legend content={<CustomLegend />} />
           <Label
             value={`${balance}€`}
             position="center"

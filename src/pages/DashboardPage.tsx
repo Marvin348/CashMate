@@ -1,3 +1,4 @@
+import IncomeExpenseChart from "@/components/charts/IncomeExpenseChart";
 import TransactionPieChart from "@/components/charts/TransactionPieChart";
 import SummaryCardGroup from "@/components/dashboard/SummaryCardGroup";
 import GridTransactions from "@/components/transaction/GridTransactions";
@@ -33,9 +34,6 @@ const DashboardPage = () => {
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
     .slice(0, 6);
 
-  console.log(recentTransactions);
-
-  // grid grid-cols-1 sm:grid-cols-2 gap-x-10
 
   return (
     <>
@@ -61,6 +59,10 @@ const DashboardPage = () => {
             <GridTransactions data={recentTransactions} />
           </div>
         </div>
+      </div>
+
+      <div className="mt-6 w-full h-[400px] p-4 rounded-md custom-shadow">
+        <IncomeExpenseChart data={transactions} />
       </div>
     </>
   );

@@ -2,6 +2,8 @@ import { AreaChart, Area, XAxis, YAxis, Tooltip } from "recharts";
 import CustomTooltip from "../CustomTooltip";
 import { formatDateDE } from "@/utils/formData";
 import type { Transaction } from "@/types/transaction";
+import { PAGE_COLORS } from "@/constants/colors";
+PAGE_COLORS;
 
 type ChartProps = {
   data: Transaction[];
@@ -44,8 +46,8 @@ const TransactionAreaChart = ({ data, type }: ChartProps) => {
       <Area
         type="monotone"
         dataKey="amount"
-        stroke={type === "income" ? "#22c55e" : "#e53935"}
-        fill={type === "income" ? "#22c55e" : "#e53935"}
+        stroke={type === "income" ? PAGE_COLORS.income : PAGE_COLORS.expense}
+        fill={type === "income" ? PAGE_COLORS.income : PAGE_COLORS.expense}
         strokeWidth={3}
         pointerEvents="none"
       />

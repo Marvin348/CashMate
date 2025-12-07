@@ -5,6 +5,7 @@ import type { IconType } from "react-icons/lib";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { useState } from "react";
 import TransactionActionsMenu from "./TransactionActionsMenu";
+import { PAGE_COLORS } from "@/constants/colors";
 
 type TransactionItemProps = {
   trans: Transaction;
@@ -44,11 +45,13 @@ const TransactionItem = ({
         <p className="font-semibold wrap-break-word truncate">{name}</p>
         <p className="text-gray-500 text-xs">{formatDateDE(date)}</p>
       </div>
-      <div
+      <div style={{
+                  color: type === "income" ? PAGE_COLORS.income : PAGE_COLORS.expense,
+                }}
         className={`flex items-center gap-1 ml-auto text-xs p-1 rounded-md font-medium ${
           type === "income"
-            ? "text-green-600 bg-green-600/20"
-            : "text-red-600 bg-red-600/20"
+            ? "bg-green-500/20"
+            : "bg-red-500/20"
         }`}
       >
         {`${amount}€`}
