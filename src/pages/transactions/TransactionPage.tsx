@@ -57,7 +57,7 @@ const TransactionPage = ({ type }: TransactionPageProps) => {
 
       <div className="mt-6 p-4 custom-shadow rounded-md">
         <h2 className="font-bold text-lg mb-4">
-          {type === "income" ? "Alle Einnahmen" : "Alle Ausgaben"}
+          {type === "income" ? "Alle Einkommen" : "Alle Ausgaben"}
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 lg:gap-x-12 gap-x-8">
           <GridTransactions

@@ -1,6 +1,6 @@
 export const PAGE_TEXT = {
   income: {
-    title: "Einnahmen im Blick",
+    title: "Einkommen im Blick",
     subtitle:
       "Behalte deine Einnahmen im Auge und sieh, wohin dein Geld fließt.",
   },

@@ -17,8 +17,6 @@ const TransactionPieChart = ({
     { name: "Ausgaben", value: expense, fill: "#e53935" },
   ];
 
-  // { name: "Gesamtsumme", value: balance, fill: "#4c51bf" },
-
   return (
     <ResponsiveContainer width="100%" height={300}>
       <PieChart>

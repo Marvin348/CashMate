@@ -5,6 +5,7 @@ import GridTransactions from "@/components/transaction/GridTransactions";
 import { DASHBOARD_CARDS } from "@/constants/dashboard-cards";
 import useTransactionsStore from "@/storage/useTransactionsStore";
 import { calcTotal } from "@/utils/calcTotal";
+import { getRecentTransactions } from "@/utils/getRecentTransactions";
 const DashboardPage = () => {
   const transactions = useTransactionsStore((state) => state.transactions);
 
@@ -30,10 +31,15 @@ const DashboardPage = () => {
     },
   ];
 
-  const recentTransactions = [...transactions]
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-    .slice(0, 6);
-
+  const recentTransactions = getRecentTransactions(transactions);
+  const recentIncomeTransactions = getRecentTransactions(
+    transactions,
+    "income"
+  );
+  const recentExpenseTransactions = getRecentTransactions(
+    transactions,
+    "expense"
+  );
 
   return (
     <>
@@ -63,6 +69,18 @@ const DashboardPage = () => {
 
       <div className="mt-6 w-full h-[400px] p-4 rounded-md custom-shadow">
         <IncomeExpenseChart data={transactions} />
+      </div>
+
+      <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-6">
+        <div className="w-full p-4 rounded-md custom-shadow">
+          <h2 className="font-medium text-lg mb-2">Letzte Einkommen</h2>
+          <GridTransactions data={recentIncomeTransactions} />
+        </div>
+
+        <div className="w-full p-4 rounded-md custom-shadow">
+          <h2 className="font-medium text-lg mb-2">Letzte Ausgaben</h2>
+          <GridTransactions data={recentExpenseTransactions} />
+        </div>
       </div>
     </>
   );
