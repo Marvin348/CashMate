@@ -24,7 +24,7 @@ const GridTransactions = ({
     <>
       {data.map((trans) => {
         const icon = ICON_OPTIONS.find((i) => i.value === trans.icon);
-
+        
         return (
           <div
             key={trans.id}
