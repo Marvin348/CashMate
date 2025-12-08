@@ -45,13 +45,17 @@ const FilterPage = () => {
           </p>
         </div>
         <div className="">
-          <FiltersPanel setFilters={setFilters} filters={filters} defaultFilters={defaultFilters} />
+          <FiltersPanel
+            setFilters={setFilters}
+            filters={filters}
+            defaultFilters={defaultFilters}
+          />
         </div>
       </div>
       <div className="mt-6 custom-shadow p-4 rounded-md">
         <h2 className="font-bold text-lg mb-4">Transaktionen</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 lg:gap-x-12 gap-x-8">
-        <GridTransactions data={filteredData} />
+          <GridTransactions data={filteredData} />
         </div>
       </div>
     </div>

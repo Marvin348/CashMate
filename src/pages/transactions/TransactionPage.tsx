@@ -5,6 +5,7 @@ import useTransactionsStore from "@/storage/useTransactionsStore";
 import GridTransactions from "@/components/transaction/GridTransactions";
 import TransactionAreaChart from "@/components/charts/TransactionAreaChart";
 import type { Transaction } from "@/types/transaction";
+import PageHeader from "@/components/PageHeader";
 
 type TransactionPageProps = {
   type: "expense" | "income";
@@ -38,17 +39,10 @@ const TransactionPage = ({ type }: TransactionPageProps) => {
       <div className="mt-4 p-4 w-full custom-shadow rounded-md">
         <div className="flex items-center justify-between mb-6 sm:mb-10">
           <div className="">
-            <h2 className="font-bold text-xl">
-              {type === "income" ? "Einnahmen im Blick" : "Ausgaben im Blick"}
-            </h2>
-            <p className="text-sm text-gray-600">
-              {type === "income"
-                ? "Behalte deine Einnahmen im Auge und sieh, wohin dein Geld fließt."
-                : "Verfolge deine Ausgaben und entdecke Sparpotenziale im Alltag."}
-            </p>
+            <PageHeader type={type} />
           </div>
           <Button variant="outline" onClick={() => setIsModalOpen(true)}>
-            {type === "income" ? "+ Einkommen" : "+ Ausgaben"}
+            {type === "income" ? "+ Einnahmen" : "+ Ausgaben"}
           </Button>
         </div>
 
