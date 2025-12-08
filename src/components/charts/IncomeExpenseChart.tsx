@@ -10,10 +10,6 @@ type IncomeExpenseChartProps = {
 };
 
 const IncomeExpenseChart = ({ data }: IncomeExpenseChartProps) => {
-  const LEGENT_LABELS = {
-    income: "Einkommen",
-    expense: "Ausgaben",
-  };
 
   const chartData = groupTransactionsByMonth(data);
 
@@ -56,14 +52,14 @@ const IncomeExpenseChart = ({ data }: IncomeExpenseChartProps) => {
         dataKey="income"
         stroke="#f97316"
         activeDot={{ r: 8 }}
-        strokeWidth={3}
+        strokeWidth={4}
         pointerEvents="none"
       />
       <Line
         type="monotone"
         dataKey="expense"
         stroke="#e53935"
-        strokeWidth={3}
+        strokeWidth={4}
         pointerEvents="none"
       />
     </LineChart>
