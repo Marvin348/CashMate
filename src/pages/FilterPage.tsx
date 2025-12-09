@@ -35,7 +35,7 @@ const FilterPage = () => {
   console.log(filteredData);
 
   return (
-    <div>
+    <>
       <div className="mt-4 custom-shadow p-4 rounded-md">
         <div className="mb-6 sm:mb-10">
           <h2 className="font-bold text-xl">Alles auf einen Blick</h2>
@@ -58,7 +58,7 @@ const FilterPage = () => {
           <GridTransactions data={filteredData} />
         </div>
       </div>
-    </div>
+    </>
   );
 };
 export default FilterPage;

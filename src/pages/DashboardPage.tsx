@@ -62,7 +62,7 @@ const DashboardPage = () => {
         <div className="w-full p-4 rounded-md custom-shadow">
           <h2 className="font-medium text-lg mb-2">Letzte Transaktionen</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 lg:grid-cols-1">
-            <GridTransactions data={recentTransactions} />
+            <GridTransactions data={recentTransactions} showActions={false} />
           </div>
         </div>
       </div>

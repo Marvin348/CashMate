@@ -13,7 +13,9 @@ type TransactionFormData = {
 
 type StoreState = {
   transactions: Transaction[];
+  editTransaction: Transaction | null;
   addTransaction: (newObject: TransactionFormData) => void;
+  setEditTransaction: (transaction: Transaction) => void;
   deleteTransaction: (id: string) => void;
   updateTransaction: (id: string, updatedData: Partial<Transaction>) => void;
 };
@@ -22,6 +24,7 @@ const useTransactionsStore = create<StoreState>()(
   persist(
     (set) => ({
       transactions: [],
+      editTransaction: null,
 
       addTransaction: (newObject) =>
         set((state) => {
@@ -30,6 +33,9 @@ const useTransactionsStore = create<StoreState>()(
 
           return { transactions: [...state.transactions, updatedObject] };
         }),
+
+      setEditTransaction: (transaction) =>
+        set({ editTransaction: transaction }),
 
       deleteTransaction: (id) =>
         set((state) => ({

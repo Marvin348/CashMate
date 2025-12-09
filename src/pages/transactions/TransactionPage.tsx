@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import useTransactionsStore from "@/storage/useTransactionsStore";
 import GridTransactions from "@/components/transaction/GridTransactions";
 import TransactionAreaChart from "@/components/charts/TransactionAreaChart";
-import type { Transaction } from "@/types/transaction";
 import PageHeader from "@/components/PageHeader";
 
 type TransactionPageProps = {
@@ -13,15 +12,16 @@ type TransactionPageProps = {
 
 const TransactionPage = ({ type }: TransactionPageProps) => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-  const [editingTransaction, setEditingTransaction] =
-    useState<Transaction | null>(null);
 
   const transactions = useTransactionsStore((state) => state.transactions);
+  const editTransaction = useTransactionsStore(
+    (state) => state.editTransaction
+  );
+  const setEditTransaction = useTransactionsStore(
+    (state) => state.setEditTransaction
+  );
 
   const filtered = transactions.filter((t) => t.type === type);
-
-  console.log(filtered);
-  console.log(editingTransaction);
 
   return (
     <>
@@ -29,10 +29,10 @@ const TransactionPage = ({ type }: TransactionPageProps) => {
         <TransactionModal
           type={type}
           onClose={() => {
-            setEditingTransaction(null);
+            setEditTransaction(null);
             setIsModalOpen(false);
           }}
-          editingTransaction={editingTransaction}
+          editingTransaction={editTransaction}
         />
       )}
 
@@ -63,7 +63,7 @@ const TransactionPage = ({ type }: TransactionPageProps) => {
           <GridTransactions
             data={filtered}
             setIsModalOpen={() => setIsModalOpen(true)}
-            setEditingTransaction={setEditingTransaction}
+            showActions={true}
           />
         </div>
       </div>

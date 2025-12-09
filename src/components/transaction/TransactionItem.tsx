@@ -17,6 +17,7 @@ type TransactionItemProps = {
   };
   onDelete: () => void;
   onEdit: () => void;
+  showActions?: boolean;
 };
 
 const TransactionItem = ({
@@ -24,6 +25,7 @@ const TransactionItem = ({
   icon,
   onDelete,
   onEdit,
+  showActions,
 }: TransactionItemProps) => {
   const { name, date, amount } = trans;
   const Icon = icon?.icon;
@@ -41,17 +43,16 @@ const TransactionItem = ({
           <Icon />
         </div>
       )}
-      <div className="flex-1 min-w-0"> 
+      <div className="flex-1 min-w-0">
         <p className="font-semibold wrap-break-word truncate">{name}</p>
         <p className="text-gray-500 text-xs">{formatDateDE(date)}</p>
       </div>
-      <div style={{
-                  color: type === "income" ? PAGE_COLORS.income : PAGE_COLORS.expense,
-                }}
+      <div
+        style={{
+          color: type === "income" ? PAGE_COLORS.income : PAGE_COLORS.expense,
+        }}
         className={`flex items-center gap-1 ml-auto text-xs p-1 rounded-md font-medium ${
-          type === "income"
-            ? "bg-green-500/20"
-            : "bg-red-500/20"
+          type === "income" ? "bg-green-500/20" : "bg-red-500/20"
         }`}
       >
         {`${amount}€`}
@@ -61,23 +62,29 @@ const TransactionItem = ({
           <IoTrendingDownOutline />
         )}
       </div>
-      <button
-        className="text-gray-700 hover:text-black"
-        onClick={() => setIsOpen((prev) => !prev)}
-      >
-        <BsThreeDotsVertical />
-      </button>
-      {isOpen && (
-        <TransactionActionsMenu
-          onDelete={() => {
-            setIsOpen(false);
-            onDelete();
-          }}
-          onEdit={() => {
-            onEdit();
-            setIsOpen(false);
-          }}
-        />
+
+      {showActions && (
+        <div>
+          <button
+            className="text-gray-700 hover:text-black"
+            onClick={() => setIsOpen((prev) => !prev)}
+          >
+            <BsThreeDotsVertical />
+          </button>
+
+          {isOpen && (
+            <TransactionActionsMenu
+              onDelete={() => {
+                setIsOpen(false);
+                onDelete();
+              }}
+              onEdit={() => {
+                onEdit();
+                setIsOpen(false);
+              }}
+            />
+          )}
+        </div>
       )}
     </>
   );
