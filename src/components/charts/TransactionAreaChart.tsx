@@ -50,6 +50,8 @@ const TransactionAreaChart = ({ data, type }: ChartProps) => {
         fill={type === "income" ? PAGE_COLORS.income : PAGE_COLORS.expense}
         strokeWidth={3}
         pointerEvents="none"
+        activeDot={{ r: 6 }}
+        dot={false}
       />
     </AreaChart>
   );

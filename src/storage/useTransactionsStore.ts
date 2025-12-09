@@ -15,7 +15,7 @@ type StoreState = {
   transactions: Transaction[];
   editTransaction: Transaction | null;
   addTransaction: (newObject: TransactionFormData) => void;
-  setEditTransaction: (transaction: Transaction) => void;
+  setEditTransaction: (transaction: Transaction | null) => void;
   deleteTransaction: (id: string) => void;
   updateTransaction: (id: string, updatedData: Partial<Transaction>) => void;
 };

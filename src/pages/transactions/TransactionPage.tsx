@@ -23,6 +23,13 @@ const TransactionPage = ({ type }: TransactionPageProps) => {
 
   const filtered = transactions.filter((t) => t.type === type);
 
+  const sortedForGrid = [...filtered].sort(
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+  );
+  const sortedForChart = [...filtered].sort(
+    (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
+  );
+
   return (
     <>
       {isModalOpen && (
@@ -46,9 +53,9 @@ const TransactionPage = ({ type }: TransactionPageProps) => {
           </Button>
         </div>
 
-        {filtered.length >= 1 ? (
+        {sortedForChart.length >= 1 ? (
           <div className="w-full h-[300px]">
-            <TransactionAreaChart data={filtered} type={type} />
+            <TransactionAreaChart data={sortedForChart} type={type} />
           </div>
         ) : (
           <div>Noch keine Daten vorhanden</div>
@@ -61,7 +68,7 @@ const TransactionPage = ({ type }: TransactionPageProps) => {
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 lg:gap-x-12 gap-x-8">
           <GridTransactions
-            data={filtered}
+            data={sortedForGrid}
             setIsModalOpen={() => setIsModalOpen(true)}
             showActions={true}
           />

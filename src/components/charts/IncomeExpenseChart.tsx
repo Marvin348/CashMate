@@ -10,7 +10,6 @@ type IncomeExpenseChartProps = {
 };
 
 const IncomeExpenseChart = ({ data }: IncomeExpenseChartProps) => {
-
   const chartData = groupTransactionsByMonth(data);
 
   console.log(chartData);
@@ -45,22 +44,27 @@ const IncomeExpenseChart = ({ data }: IncomeExpenseChartProps) => {
         tickLine={false}
         pointerEvents="none"
       />
-      <Tooltip cursor={false} content={<DashboardTooltip />} />
+      <Tooltip
+        cursor={{
+          stroke: "transparent",
+          fill: "transparent",
+        }}
+        content={<DashboardTooltip />}
+      />
       <Legend content={<CustomLegend />} />
       <Line
         type="monotone"
         dataKey="income"
         stroke="#f97316"
-        activeDot={{ r: 8 }}
+        activeDot={false}
         strokeWidth={4}
-        pointerEvents="none"
       />
       <Line
         type="monotone"
         dataKey="expense"
         stroke="#e53935"
+        activeDot={false}
         strokeWidth={4}
-        pointerEvents="none"
       />
     </LineChart>
   );
