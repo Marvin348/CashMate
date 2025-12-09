@@ -1,5 +1,5 @@
 import { PieChart, Pie, ResponsiveContainer, Label, Legend } from "recharts";
-import CustomLegend from "../CustomLegend";
+import CustomLegend from "@/components/charts/CustomLegend";
 
 type TransactionPieChartProps = {
   income: number;

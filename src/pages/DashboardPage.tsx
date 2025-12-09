@@ -2,10 +2,13 @@ import IncomeExpenseChart from "@/components/charts/IncomeExpenseChart";
 import TransactionPieChart from "@/components/charts/TransactionPieChart";
 import SummaryCardGroup from "@/components/dashboard/SummaryCardGroup";
 import GridTransactions from "@/components/transaction/GridTransactions";
+import { FaArrowRight } from "react-icons/fa";
 import { DASHBOARD_CARDS } from "@/constants/dashboard-cards";
 import useTransactionsStore from "@/storage/useTransactionsStore";
 import { calcTotal } from "@/utils/calcTotal";
 import { getRecentTransactions } from "@/utils/getRecentTransactions";
+import { Link } from "react-router";
+
 const DashboardPage = () => {
   const transactions = useTransactionsStore((state) => state.transactions);
 
@@ -73,12 +76,22 @@ const DashboardPage = () => {
 
       <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-6">
         <div className="w-full p-4 rounded-md custom-shadow">
-          <h2 className="font-medium text-lg mb-2">Letzte Einkommen</h2>
+          <div className="flex items-center justify-between">
+            <h2 className="font-medium text-lg mb-2">Letzte Einkommen</h2>
+            <Link className="text-gray-700 hover:text-black" to="/income">
+              <FaArrowRight />
+            </Link>
+          </div>
           <GridTransactions data={recentIncomeTransactions} />
         </div>
 
         <div className="w-full p-4 rounded-md custom-shadow">
-          <h2 className="font-medium text-lg mb-2">Letzte Ausgaben</h2>
+          <div className="flex items-center justify-between">
+            <h2 className="font-medium text-lg mb-2">Letzte Ausgaben</h2>
+            <Link className="text-gray-700 hover:text-black" to="/expense">
+              <FaArrowRight />
+            </Link>
+          </div>
           <GridTransactions data={recentExpenseTransactions} />
         </div>
       </div>

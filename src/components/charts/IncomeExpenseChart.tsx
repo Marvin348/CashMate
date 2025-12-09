@@ -2,8 +2,8 @@ import type { Transaction } from "@/types/transaction";
 import { formatDateDE } from "@/utils/formData";
 import { LineChart, Line, XAxis, YAxis, Tooltip, Legend } from "recharts";
 import { groupTransactionsByMonth } from "@/utils/groupTransactionsByMonth";
-import DashboardTooltip from "../DashboardTooltip";
-import CustomLegend from "../CustomLegend";
+import DashboardTooltip from "@/components/charts/DashboardTooltip";
+import CustomLegend from "@/components/charts/CustomLegend";
 
 type IncomeExpenseChartProps = {
   data: Transaction[];

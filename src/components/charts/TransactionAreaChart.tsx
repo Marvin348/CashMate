@@ -1,5 +1,5 @@
 import { AreaChart, Area, XAxis, YAxis, Tooltip } from "recharts";
-import CustomTooltip from "../CustomTooltip";
+import CustomTooltip from "@/components/charts/CustomTooltip";
 import { formatDateDE } from "@/utils/formData";
 import type { Transaction } from "@/types/transaction";
 import { PAGE_COLORS } from "@/constants/colors";
