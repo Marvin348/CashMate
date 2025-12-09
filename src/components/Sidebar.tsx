@@ -18,7 +18,7 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
         onClick={onClose}
       ></div>
       <aside
-        className={`fixed left-0 top-0 bottom-0 p-4 bg-white rounded-md transform transition-transform duration-300 ease-in-out z-50 ${
+        className={`fixed left-0 top-0 bottom-0 p-4 bg-white rounded-md transform transition-transform duration-400 ease-in-out z-50 ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         } md:static md:border-r border-gray-200 shadow-xs md:translate-x-0 md:rounded-none`}
       >
@@ -30,6 +30,7 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
               className={({ isActive }) =>
                 `sidebar-btn ${isActive ? `${activeColor}` : ""}`
               }
+              onClick={onClose}
             >
               <Icon />
               {label}

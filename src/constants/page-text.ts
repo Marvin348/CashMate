@@ -8,4 +8,9 @@ export const PAGE_TEXT = {
     title: "Ausgaben im Blick",
     subtitle: "Verfolge deine Ausgaben und entdecke Sparpotenziale im Alltag.",
   },
+  filter: {
+    title: "Alles auf einen Blick",
+    subtitle:
+      "Filtere deine Einträge nach Kategorie oder Zeitraum, um genau zu sehen, wohin dein Geld geht.",
+  },
 };

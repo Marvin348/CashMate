@@ -1,20 +1,15 @@
 import { PAGE_TEXT } from "@/constants/page-text";
 
 type PageHeaderProps = {
-  type: "income" | "expense";
+  type: "income" | "expense" | "filter";
 };
 
 const PageHeader = ({ type }: PageHeaderProps) => {
+  const page = PAGE_TEXT[type];
   return (
     <>
-      <h2 className="font-bold text-xl">
-        {type === "income" ? PAGE_TEXT.income.title : PAGE_TEXT.expense.title}
-      </h2>
-      <p className="text-sm text-gray-600">
-        {type === "income"
-          ? PAGE_TEXT.income.subtitle
-          : PAGE_TEXT.expense.subtitle}
-      </p>
+      <h2 className="font-bold text-xl">{page.title}</h2>
+      <p className="text-sm text-gray-600">{page.subtitle}</p>
     </>
   );
 };

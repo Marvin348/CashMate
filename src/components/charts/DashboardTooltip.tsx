@@ -20,12 +20,15 @@ const DashboardTooltip = ({ active, payload }: DashboardTooltipProps) => {
         ></span>
         <p className="font-semibold">{data.income}€</p>
       </div>
-      <div className="flex items-center gap-1.5">
+      <div className="flex items-center gap-1.5 pb-1">
         <span
           className="size-2.5 rounded-sm"
           style={{ backgroundColor: DASHBOARD_COLORS.expense }}
         ></span>
         <p className="font-semibold">{data.expense}€</p>
+      </div>
+      <div className="border-t border-gray-300 pt-1">
+        <p>{data.month}</p>
       </div>
     </div>
   );

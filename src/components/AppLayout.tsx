@@ -22,7 +22,7 @@ const AppLayout = () => {
           isOpen={isSidebarOpen}
           onClose={() => setIsSidebarOpen(false)}
         />
-        <main className="container flex-1">
+        <main className="mt-4 w-full px-8 flex-1">
           <Outlet />
         </main>
       </div>

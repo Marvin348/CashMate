@@ -4,6 +4,7 @@ import { LineChart, Line, XAxis, YAxis, Tooltip, Legend } from "recharts";
 import { groupTransactionsByMonth } from "@/utils/groupTransactionsByMonth";
 import DashboardTooltip from "@/components/charts/DashboardTooltip";
 import CustomLegend from "@/components/charts/CustomLegend";
+import { DASHBOARD_COLORS } from "@/constants/colors";
 
 type IncomeExpenseChartProps = {
   data: Transaction[];
@@ -13,6 +14,8 @@ const IncomeExpenseChart = ({ data }: IncomeExpenseChartProps) => {
   const chartData = groupTransactionsByMonth(data);
 
   console.log(chartData);
+
+  // border border-gray-200
 
   return (
     <LineChart
@@ -55,16 +58,20 @@ const IncomeExpenseChart = ({ data }: IncomeExpenseChartProps) => {
       <Line
         type="monotone"
         dataKey="income"
-        stroke="#f97316"
+        stroke={DASHBOARD_COLORS.income}
+        fill={DASHBOARD_COLORS.income}
         activeDot={false}
         strokeWidth={4}
+        pointerEvents="none"
       />
       <Line
         type="monotone"
         dataKey="expense"
-        stroke="#e53935"
+        stroke={DASHBOARD_COLORS.expense}
+        fill={DASHBOARD_COLORS.expense}
         activeDot={false}
         strokeWidth={4}
+        pointerEvents="none"
       />
     </LineChart>
   );

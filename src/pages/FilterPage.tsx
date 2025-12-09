@@ -2,6 +2,7 @@ import FiltersPanel from "@/components/filter/FiltersPanel";
 import { useState } from "react";
 import useTransactionsStore from "@/storage/useTransactionsStore";
 import GridTransactions from "@/components/transaction/GridTransactions";
+import PageHeader from "@/components/PageHeader";
 
 type Filters = {
   type: string;
@@ -36,13 +37,9 @@ const FilterPage = () => {
 
   return (
     <>
-      <div className="mt-4 custom-shadow p-4 rounded-md">
+      <div className="custom-shadow p-4 rounded-md">
         <div className="mb-6 sm:mb-10">
-          <h2 className="font-bold text-xl">Alles auf einen Blick</h2>
-          <p className="text-sm text-gray-600">
-            Filtere deine Einträge nach Kategorie oder Zeitraum, um genau zu
-            sehen, wohin dein Geld geht.
-          </p>
+          <PageHeader type="filter" />
         </div>
         <div className="">
           <FiltersPanel

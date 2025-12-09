@@ -46,7 +46,7 @@ const DashboardPage = () => {
 
   return (
     <>
-      <div className="mt-4">
+      <div className="">
         <SummaryCardGroup cards={enrichedCards} />
       </div>
 
@@ -78,7 +78,7 @@ const DashboardPage = () => {
         <div className="w-full p-4 rounded-md custom-shadow">
           <div className="flex items-center justify-between">
             <h2 className="font-medium text-lg mb-2">Letzte Einkommen</h2>
-            <Link className="text-gray-700 hover:text-black" to="/income">
+            <Link className="text-gray-600 hover:text-black" to="/income">
               <FaArrowRight />
             </Link>
           </div>
@@ -88,7 +88,7 @@ const DashboardPage = () => {
         <div className="w-full p-4 rounded-md custom-shadow">
           <div className="flex items-center justify-between">
             <h2 className="font-medium text-lg mb-2">Letzte Ausgaben</h2>
-            <Link className="text-gray-700 hover:text-black" to="/expense">
+            <Link className="text-gray-600 hover:text-black" to="/expense">
               <FaArrowRight />
             </Link>
           </div>

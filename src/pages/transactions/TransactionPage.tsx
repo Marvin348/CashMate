@@ -43,13 +43,13 @@ const TransactionPage = ({ type }: TransactionPageProps) => {
         />
       )}
 
-      <div className="mt-4 p-4 w-full custom-shadow rounded-md">
-        <div className="flex items-center justify-between mb-6 sm:mb-10">
-          <div className="">
+      <div className="p-4 w-full custom-shadow rounded-md">
+        <div className="flex items-center justify-end sm:justify-between mb-6 sm:mb-10">
+          <div className="hidden sm:block">
             <PageHeader type={type} />
           </div>
-          <Button variant="outline" onClick={() => setIsModalOpen(true)}>
-            {type === "income" ? "+ Einnahmen" : "+ Ausgaben"}
+          <Button variant="outline" onClick={() => setIsModalOpen(true)} className="">
+            {type === "income" ? "+ Einkommen" : "+ Ausgaben"} 
           </Button>
         </div>
 
