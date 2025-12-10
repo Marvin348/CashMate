@@ -1,5 +1,8 @@
 import { PieChart, Pie, ResponsiveContainer, Label, Legend } from "recharts";
 import CustomLegend from "@/components/charts/CustomLegend";
+import NoData from "@/components/NoData";
+import { DASHBOARD_COLORS } from "@/constants/colors";
+import { formatMoney } from "@/utils/formatMoney";
 
 type TransactionPieChartProps = {
   income: number;
@@ -13,9 +16,12 @@ const TransactionPieChart = ({
   balance,
 }: TransactionPieChartProps) => {
   const data = [
-    { name: "Einnahmen", value: income, fill: "#f97316" },
-    { name: "Ausgaben", value: expense, fill: "#e53935" },
+    { name: "Einnahmen", value: income, fill: DASHBOARD_COLORS.income },
+    { name: "Ausgaben", value: expense, fill: DASHBOARD_COLORS.expense },
   ];
+
+  if (!income && !expense)
+    return <NoData message="📉​ Keine Daten für das Diagramm" />;
 
   return (
     <ResponsiveContainer width="100%" height={300}>
@@ -32,7 +38,7 @@ const TransactionPieChart = ({
         >
           <Legend content={<CustomLegend />} />
           <Label
-            value={`${balance}€`}
+            value={formatMoney(balance)}
             position="center"
             style={{
               fontSize: "17px",

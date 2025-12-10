@@ -6,6 +6,7 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 import { useState } from "react";
 import TransactionActionsMenu from "@/components/transaction/TransactionActionsMenu";
 import { PAGE_COLORS } from "@/constants/colors";
+import { formatMoney } from "@/utils/formatMoney";
 
 type TransactionItemProps = {
   trans: Transaction;
@@ -44,7 +45,7 @@ const TransactionItem = ({
         </div>
       )}
       <div className="flex-1 min-w-0">
-        <p className="font-semibold wrap-break-word truncate">{name}</p>
+        <p className="font-medium wrap-break-word truncate">{name}</p>
         <p className="text-gray-500 text-xs">{formatDateDE(date)}</p>
       </div>
       <div
@@ -55,7 +56,7 @@ const TransactionItem = ({
           type === "income" ? "bg-green-500/20" : "bg-red-500/20"
         }`}
       >
-        {`${amount}€`}
+        {formatMoney(amount)}
         {type === "income" ? (
           <IoTrendingUpOutline />
         ) : (

@@ -3,6 +3,7 @@ import CustomTooltip from "@/components/charts/CustomTooltip";
 import { formatDateDE } from "@/utils/formData";
 import type { Transaction } from "@/types/transaction";
 import { PAGE_COLORS } from "@/constants/colors";
+import NoData from "@/components/NoData";
 PAGE_COLORS;
 
 type ChartProps = {
@@ -11,6 +12,10 @@ type ChartProps = {
 };
 
 const TransactionAreaChart = ({ data, type }: ChartProps) => {
+
+  if (data.length === 0)
+    return <NoData message="📉​ Keine Daten für das Diagramm" />;
+
   return (
     <AreaChart
       style={{

@@ -46,7 +46,7 @@ const DashboardPage = () => {
 
   return (
     <>
-      <div className="">
+      <div>
         <SummaryCardGroup cards={enrichedCards} />
       </div>
 

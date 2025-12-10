@@ -2,6 +2,8 @@ import type { Transaction } from "@/types/transaction";
 import { ICON_OPTIONS } from "@/constants/icon-options";
 import TransactionItem from "@/components/transaction/TransactionItem";
 import useTransactionsStore from "@/storage/useTransactionsStore";
+import NoData from "@/components/NoData";
+
 
 type GridTransactionsProps = {
   data: Transaction[];
@@ -20,7 +22,7 @@ const GridTransactions = ({
   );
 
   if (data.length === 0) {
-    return <div className="text-gray-500 text-sm">Keine Daten gefunden</div>;
+    return <NoData message="Keine Transaktionen gefunden"/>
   }
 
   return (

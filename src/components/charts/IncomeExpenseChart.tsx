@@ -5,17 +5,17 @@ import { groupTransactionsByMonth } from "@/utils/groupTransactionsByMonth";
 import DashboardTooltip from "@/components/charts/DashboardTooltip";
 import CustomLegend from "@/components/charts/CustomLegend";
 import { DASHBOARD_COLORS } from "@/constants/colors";
+import NoData from "@/components/NoData";
 
 type IncomeExpenseChartProps = {
   data: Transaction[];
 };
 
 const IncomeExpenseChart = ({ data }: IncomeExpenseChartProps) => {
+  if (data.length === 0)
+    return <NoData message="📉​ Keine Daten für das Diagramm" />;
+
   const chartData = groupTransactionsByMonth(data);
-
-  console.log(chartData);
-
-  // border border-gray-200
 
   return (
     <LineChart

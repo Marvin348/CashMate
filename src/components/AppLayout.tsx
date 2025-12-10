@@ -2,17 +2,8 @@ import { useState } from "react";
 import Header from "@/components/Header";
 import Sidebar from "@/components/Sidebar";
 import { Outlet } from "react-router";
-import useTransactionsStore from "@/storage/useTransactionsStore";
 const AppLayout = () => {
-  const transactions = useTransactionsStore((state) => state.transactions);
-  const editTransaction = useTransactionsStore(
-    (state) => state.editTransaction
-  );
-
   const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
-
-  console.log(transactions);
-  console.log(editTransaction);
 
   return (
     <div>
@@ -22,7 +13,7 @@ const AppLayout = () => {
           isOpen={isSidebarOpen}
           onClose={() => setIsSidebarOpen(false)}
         />
-        <main className="mt-4 w-full px-8 flex-1">
+        <main className="mt-4 w-full max-w-[1600px] mx-auto px-8 flex-1 pb-4">
           <Outlet />
         </main>
       </div>

@@ -48,22 +48,22 @@ const TransactionPage = ({ type }: TransactionPageProps) => {
           <div className="hidden sm:block">
             <PageHeader type={type} />
           </div>
-          <Button variant="outline" onClick={() => setIsModalOpen(true)} className="">
-            {type === "income" ? "+ Einkommen" : "+ Ausgaben"} 
+          <Button
+            variant="outline"
+            onClick={() => setIsModalOpen(true)}
+            className=""
+          >
+            {type === "income" ? "+ Einkommen" : "+ Ausgaben"}
           </Button>
         </div>
 
-        {sortedForChart.length >= 1 ? (
-          <div className="w-full h-[300px]">
-            <TransactionAreaChart data={sortedForChart} type={type} />
-          </div>
-        ) : (
-          <div>Noch keine Daten vorhanden</div>
-        )}
+        <div className="w-full h-[300px]">
+          <TransactionAreaChart data={sortedForChart} type={type} />
+        </div>
       </div>
 
       <div className="mt-6 p-4 custom-shadow rounded-md">
-        <h2 className="font-bold text-lg mb-4">
+        <h2 className="font-medium text-lg mb-4">
           {type === "income" ? "Alle Einkommen" : "Alle Ausgaben"}
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 lg:gap-x-12 gap-x-8">

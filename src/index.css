@@ -3,6 +3,9 @@
 
 @custom-variant dark (&:is(.dark *));
 
+body {
+  font-family: "Poppins";
+}
 
 .recharts-surface:focus,
 .recharts-surface:focus {

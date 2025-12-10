@@ -1,6 +1,7 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import type { Transaction } from "@/types/transaction";
+import { exampleTransactions } from "@/data/exampleTransactions";
 
 type TransactionFormData = {
   type: "income" | "expense";
@@ -23,7 +24,7 @@ type StoreState = {
 const useTransactionsStore = create<StoreState>()(
   persist(
     (set) => ({
-      transactions: [],
+      transactions: exampleTransactions,
       editTransaction: null,
 
       addTransaction: (newObject) =>

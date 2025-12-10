@@ -1,4 +1,5 @@
 import type { CardType } from "@/types/dashboard";
+import { formatMoney } from "@/utils/formatMoney";
 
 type SummaryCardProps = {
   card: CardType;
@@ -17,7 +18,7 @@ const SummaryCard = ({ card }: SummaryCardProps) => {
       </div>
       <div>
         <p className="text-gray-600">{label}</p>
-        <p className="font-semibold">{value}€</p>
+        <p className="font-medium">{formatMoney(value)}</p>
       </div>
     </div>
   );

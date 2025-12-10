@@ -14,7 +14,7 @@ const CustomTooltip = ({ active, payload, type }: TooltipProps) => {
   const data = payload[0].payload;
   return (
     <div className="bg-white border border-gray-200 p-3 rounded-md shadow text-xs">
-      <p className="font-bold mb-1">{data.name}</p>
+      <p className="font-medium mb-1">{data.name}</p>
       <p className="border-b pb-1">
         Total:{" "}
         <span
