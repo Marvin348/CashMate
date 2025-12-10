@@ -3,11 +3,6 @@
 
 @custom-variant dark (&:is(.dark *));
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
 
 .recharts-surface:focus,
 .recharts-surface:focus {

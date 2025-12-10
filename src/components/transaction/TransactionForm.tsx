@@ -1,7 +1,7 @@
-import { Button } from "../ui/button";
-import { Input } from "../ui/input";
-import CategorySelect from "./CategorySelect";
-import IconPicker from "./IconPicker";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import CategorySelect from "@/components/transaction/CategorySelect";
+import IconPicker from "@/components/transaction/IconPicker";
 import useTransactionsStore from "@/storage/useTransactionsStore";
 import { useForm } from "react-hook-form";
 import { z } from "zod";

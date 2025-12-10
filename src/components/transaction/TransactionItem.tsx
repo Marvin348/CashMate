@@ -4,7 +4,7 @@ import { IoTrendingUpOutline, IoTrendingDownOutline } from "react-icons/io5";
 import type { IconType } from "react-icons/lib";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { useState } from "react";
-import TransactionActionsMenu from "./TransactionActionsMenu";
+import TransactionActionsMenu from "@/components/transaction/TransactionActionsMenu";
 import { PAGE_COLORS } from "@/constants/colors";
 
 type TransactionItemProps = {

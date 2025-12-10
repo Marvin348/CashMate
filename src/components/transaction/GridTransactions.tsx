@@ -1,6 +1,6 @@
 import type { Transaction } from "@/types/transaction";
 import { ICON_OPTIONS } from "@/constants/icon-options";
-import TransactionItem from "./TransactionItem";
+import TransactionItem from "@/components/transaction/TransactionItem";
 import useTransactionsStore from "@/storage/useTransactionsStore";
 
 type GridTransactionsProps = {

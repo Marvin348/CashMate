@@ -2,12 +2,12 @@ import IncomeExpenseChart from "@/components/charts/IncomeExpenseChart";
 import TransactionPieChart from "@/components/charts/TransactionPieChart";
 import SummaryCardGroup from "@/components/dashboard/SummaryCardGroup";
 import GridTransactions from "@/components/transaction/GridTransactions";
-import { FaArrowRight } from "react-icons/fa";
 import { DASHBOARD_CARDS } from "@/constants/dashboard-cards";
 import useTransactionsStore from "@/storage/useTransactionsStore";
 import { calcTotal } from "@/utils/calcTotal";
 import { getRecentTransactions } from "@/utils/getRecentTransactions";
 import { Link } from "react-router";
+import { LuArrowRight } from "react-icons/lu";
 
 const DashboardPage = () => {
   const transactions = useTransactionsStore((state) => state.transactions);
@@ -78,8 +78,11 @@ const DashboardPage = () => {
         <div className="w-full p-4 rounded-md custom-shadow">
           <div className="flex items-center justify-between">
             <h2 className="font-medium text-lg mb-2">Letzte Einkommen</h2>
-            <Link className="text-gray-600 hover:text-black" to="/income">
-              <FaArrowRight />
+            <Link
+              className="text-xl text-gray-600 hover:text-black"
+              to="/income"
+            >
+              <LuArrowRight />
             </Link>
           </div>
           <GridTransactions data={recentIncomeTransactions} />
@@ -88,8 +91,11 @@ const DashboardPage = () => {
         <div className="w-full p-4 rounded-md custom-shadow">
           <div className="flex items-center justify-between">
             <h2 className="font-medium text-lg mb-2">Letzte Ausgaben</h2>
-            <Link className="text-gray-600 hover:text-black" to="/expense">
-              <FaArrowRight />
+            <Link
+              className="text-xl text-gray-600 hover:text-black"
+              to="/expense"
+            >
+              <LuArrowRight />
             </Link>
           </div>
           <GridTransactions data={recentExpenseTransactions} />

@@ -1,13 +1,13 @@
-import { Input } from "../ui/input";
+import { Input } from "@/components/ui/input";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "../ui/select";
-import CategorySelect from "../transaction/CategorySelect";
-import { Button } from "../ui/button";
+} from "@/components/ui/select";
+import CategorySelect from "@/components/transaction/CategorySelect";
+import { Button } from "@/components/ui/button";
 import { RiResetLeftLine } from "react-icons/ri";
 
 type Filters = {

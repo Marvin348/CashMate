@@ -1,4 +1,4 @@
-import SummaryCard from "./SummaryCard";
+import SummaryCard from "@/components/dashboard/SummaryCard";
 import type { CardType } from "@/types/dashboard";
 
 type SummaryCardGroupProps = {

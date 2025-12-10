@@ -1,5 +1,5 @@
 import { IoClose } from "react-icons/io5";
-import TransactionForm from "./TransactionForm";
+import TransactionForm from "@/components/transaction/TransactionForm";
 import type { Transaction } from "@/types/transaction";
 
 type TransactionModalProps = {
