@@ -3,7 +3,7 @@ import { ICON_OPTIONS } from "@/constants/icon-options";
 import TransactionItem from "@/components/transaction/TransactionItem";
 import useTransactionsStore from "@/storage/useTransactionsStore";
 import NoData from "@/components/NoData";
-
+import { showTransactionDeleted } from "@/utils/toast";
 
 type GridTransactionsProps = {
   data: Transaction[];
@@ -22,7 +22,7 @@ const GridTransactions = ({
   );
 
   if (data.length === 0) {
-    return <NoData message="Keine Transaktionen gefunden"/>
+    return <NoData message="Keine Transaktionen gefunden" />;
   }
 
   return (
@@ -38,7 +38,10 @@ const GridTransactions = ({
             <TransactionItem
               icon={icon}
               trans={trans}
-              onDelete={() => onDelete(trans.id)}
+              onDelete={() => {
+                onDelete(trans.id);
+                showTransactionDeleted();
+              }}
               onEdit={() => {
                 setEditTransaction?.(trans);
                 setIsModalOpen?.();

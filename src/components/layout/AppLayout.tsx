@@ -1,12 +1,15 @@
 import { useState } from "react";
-import Header from "@/components/Header";
-import Sidebar from "@/components/Sidebar";
+import Header from "@/components/layout/Header";
+import Sidebar from "@/components/layout/Sidebar";
 import { Outlet } from "react-router";
+import { Toaster } from "react-hot-toast";
+
 const AppLayout = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
 
   return (
     <div>
+      <Toaster position="top-right"/>
       <Header isSidebarOpen={() => setIsSidebarOpen(true)} />
       <div className="flex">
         <Sidebar

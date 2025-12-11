@@ -1,73 +1,67 @@
-# React + TypeScript + Vite
+# 📉 Cashmate - Expense Manager
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Cashmate is an interactive and minimalistic expense management dashboard designed to help users track and analyze their daily financial activity.
 
-Currently, two official plugins are available:
+## 🚀 Live Demo
+[Live Demo]()
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📌 Features
+- Add / edit / delete transactions
+- Dashboard with charts
+- Local storage persistence
+- Smooth UI with shadcn components
+- Responsive layout (mobile + desktop)
+- Pagination
 
-## React Compiler
+## 🛠 Tech Stack
+- Typescript
+- React
+- Zustand
+- react-hook-form + zod
+- shadcn/ui
+- Tailwind CSS
+- LocalStorage
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the ESLint configuration
+## 📚 What I Learned
+**TypeScript**
+- Defining and organizing types
+- Optional props
+- Improving data safety
+- TypeScript fundamentals
+- Structuring a real app with strict typing
+**React Architecture**
+- UI logic vs business logic
+- Store-driven architecture with Zustand
+- Clean component organisation
+- Pagination and sorting logic
+**Forms & Validation**
+- Building complex forms with react-hook-form
+- Schema-based validation with zod
+- Transforming data through enriched UI arrays
+**UI / UX**
+- Using shadcn/ui efficiently
+- Reusable components
+- Responsive layouts
+- Clean UI composition
+**General**
+- Refactoring the income/expense pages into one unified transaction page
+- How to structure UI arrays for clean mapping
+- How to build a maintainable, scalable front-end
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Screenshots
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Mobile
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+![Mobile Screenshot](./cashmate-mobile.png)
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### Desktop
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+![Dashboard](./cashmate-desktop-dashboard.png)
+![Expenses](./cashmate-desktop-expense.png)
+![Filter](./cashmate-desktop-filter.png)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 📝 Note
+This is my first TypeScript project.
+I built it to practice real-world architecture, state management, data modeling, and UI patterns. It helped me understand many new concepts and improve my confidence working with TypeScript in React.

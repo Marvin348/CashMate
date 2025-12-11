@@ -1,6 +1,7 @@
 import type { Transaction } from "@/types/transaction";
 import { formatDateDE } from "@/utils/formData";
 import { PAGE_COLORS } from "@/constants/colors";
+import { formatMoney } from "@/utils/formatMoney";
 
 type TooltipProps = {
   active?: boolean;
@@ -23,10 +24,10 @@ const CustomTooltip = ({ active, payload, type }: TooltipProps) => {
           }}
           className="font-semibold"
         >
-          {data.amount}€
+          {formatMoney(data.amount)}
         </span>
       </p>
-      <p className="pt-1">{formatDateDE(data.date)}</p>
+      <p className="text-center pt-1">{formatDateDE(data.date)}</p>
     </div>
   );
 };

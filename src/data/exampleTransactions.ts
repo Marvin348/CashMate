@@ -2,6 +2,15 @@ import type { Transaction } from "@/types/transaction";
 
 export const exampleTransactions: Transaction[] = [
   {
+    id: "t500",
+    type: "income",
+    icon: "money",
+    name: "Juli Bonus",
+    amount: 7000,
+    category: "salary",
+    date: "2025-07-03",
+  },
+  {
     id: "t5",
     type: "income",
     icon: "money",

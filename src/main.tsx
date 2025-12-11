@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router";
 import DashboardPage from "./pages/DashboardPage.tsx";
-import AppLayout from "./components/AppLayout.tsx";
+import AppLayout from "./components/layout/AppLayout.tsx";
 import ExpensePage from "./pages/transactions/ExpensePage.tsx";
 import IncomePage from "./pages/transactions/IncomePage.tsx";
 import FilterPage from "./pages/FilterPage.tsx";

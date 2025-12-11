@@ -1,4 +1,5 @@
 import { FaBars } from "react-icons/fa6";
+import logo from "@/assets/CashMate.svg"
 
 type HeaderProps = {
   isSidebarOpen: () => void;
@@ -14,7 +15,7 @@ const Header = ({ isSidebarOpen }: HeaderProps) => {
         >
           <FaBars />
         </button>
-        <h2 className="font-bold text-xl">CashMate</h2>
+        <img className="w-30 h-auto" src={logo} alt="CashMate" />
       </div>
     </header>
   );

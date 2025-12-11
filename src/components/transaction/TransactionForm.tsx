@@ -8,6 +8,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import type { Transaction } from "@/types/transaction";
 import { useEffect } from "react";
+import { showTransactionEdited, showTransactionCreated } from "@/utils/toast";
 
 type TransactionFormProps = {
   type: "income" | "expense";
@@ -60,11 +61,13 @@ const TransactionForm = ({
         ...data,
         type,
       });
+      showTransactionEdited();
     } else {
       addTransaction({
         ...data,
         type,
       });
+      showTransactionCreated();
     }
     onClose();
   };
