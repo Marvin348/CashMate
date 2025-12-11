@@ -3,7 +3,7 @@
 Cashmate is an interactive and minimalistic expense management dashboard designed to help users track and analyze their daily financial activity.
 
 ## 🚀 Live Demo
-[Live Demo]()
+[Live Demo](https://home-5019181819.app-ionos.space/)
 
 ## 📌 Features
 - Add / edit / delete transactions
@@ -53,13 +53,13 @@ Cashmate is an interactive and minimalistic expense management dashboard designe
 
 ### Mobile
 
-![Mobile Screenshot](./cashmate-mobile.png)
+![Mobile Screenshot](./screenshots/cashmate-mobile.png)
 
 ### Desktop
 
-![Dashboard](./cashmate-desktop-dashboard.png)
-![Expenses](./cashmate-desktop-expense.png)
-![Filter](./cashmate-desktop-filter.png)
+![Dashboard](./screenshots/cashmate-desktop-dashboard.png)
+![Expenses](./screenshots/cashmate-desktop-expense.png)
+![Filter](./screenshots/cashmate-desktop-filter.png)
 
 
 ## 📝 Note
