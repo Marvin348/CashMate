@@ -24,27 +24,27 @@ Cashmate is an interactive and minimalistic expense management dashboard designe
 
 
 ## 📚 What I Learned
-**TypeScript**
+### TypeScript
 - Defining and organizing types
 - Optional props
 - Improving data safety
 - TypeScript fundamentals
 - Structuring a real app with strict typing
-**React Architecture**
+### React Architecture
 - UI logic vs business logic
 - Store-driven architecture with Zustand
 - Clean component organisation
 - Pagination and sorting logic
-**Forms & Validation**
+### Forms & Validation
 - Building complex forms with react-hook-form
 - Schema-based validation with zod
 - Transforming data through enriched UI arrays
-**UI / UX**
+### UI / UX
 - Using shadcn/ui efficiently
 - Reusable components
 - Responsive layouts
 - Clean UI composition
-**General**
+### General
 - Refactoring the income/expense pages into one unified transaction page
 - How to structure UI arrays for clean mapping
 - How to build a maintainable, scalable front-end
